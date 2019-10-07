@@ -1,5 +1,6 @@
 from neo4j import GraphDatabase
 import pandas as pd
+from typing import List
 
 class driver(object):
     
@@ -30,6 +31,42 @@ class driver(object):
         return df
 
     
+    """View -node in as pandas df"""
+    def get_n_relations(
+        self,
+        class_1: str,
+        id_1: str,
+        id_class: str,
+        class_2: str,
+        info_cols: List[str],
+        edge_type: str,
+        n: int,
+        verbose: bool = False,
+        where_clause: str = '',
+        ):
+        with self.driver.session() as session:
+            cols_query = 'b.' + ', b.'.join(info_cols)
+            match_query = (
+                "MATCH (a:%s {%s: %s})-[%s]-(b:%s) " % (class_1, id_class, id_1, edge_type, class_2)
+                )
+            return_section = (
+                " RETURN %s"
+                " LIMIT %s"  % (cols_query, str(n))
+                )
+            query = match_query + where_clause + return_section
+            if verbose:
+                print('Query: \n', query)
+            info = session.run(query)
+            if info is None:
+                if verbose:
+                    print('No Information Found')
+                return pd.DataFrame(columns=info_cols)
+        df = pd.DataFrame(columns=info_cols)
+        for item in info:
+            item_df = pd.DataFrame([item.values()], columns=info_cols)
+            df = pd.concat([df, item_df])
+            
+        return df
     """View info about n-node in as pandas df"""
     def get_n_nodes_info(self, class_type, info_cols, n, id_field=None, id_val=None):
         l = []

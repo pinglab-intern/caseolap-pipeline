@@ -9,3 +9,6 @@
 
 # Virtual environment
 venv
+
+# Pychache
+__pycache__
