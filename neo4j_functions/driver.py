@@ -30,7 +30,6 @@ class driver(object):
         df = pd.DataFrame([l], columns=info_cols)
         return df
 
-    """View -node in as pandas df"""
     def get_n_relations(
         self,
         class_1: str,
@@ -43,6 +42,24 @@ class driver(object):
         verbose: bool = False,
         where_clause: str = '',
     ) -> pd.DataFrame:
+        """ Get N (int) nodes of a certain class related to a specific nodes as a pandas DataFrame
+        
+        Arguments:
+            class_1 {str} -- class of specified node 
+            id_1 {str} -- id of specified node, referred to in cypher as 'a'
+            id_class {str} -- class of specified node
+            class_2 {str} -- class of nodes to search for, refered to in cypher as 'b'
+            info_cols {List[str]} -- columns of data to return ex: ['a.displayName', 'b.displayName']
+            edge_type {str} -- type of connection. For 1-3 length connections of any type, edge_type would be "*1..3"
+            n {int} -- number of results to return
+        
+        Keyword Arguments:
+            verbose {bool} -- Whether to print query sequence and other details (default: {False})
+            where_clause {str} -- limit search results using a cypher WHERE statement (default: {''})
+        
+        Returns:
+            pd.DataFrame -- Dataframe of results with columns indicated in info_cols
+        """
         with self.driver.session() as session:
             cols_query = ', '.join(info_cols)
 
@@ -130,3 +147,16 @@ class driver(object):
             df = pd.concat([df, item_df])
             
         return df
+
+def get_n_relations(
+    self,
+    class_1: str,
+    id_1: str,
+    id_class: str,
+    class_2: str,
+    info_cols: List[str],
+    edge_type: str,
+    n: int,
+    verbose: bool = False,
+    where_clause: str = '',
+    ) -> pd.DataFrame:
