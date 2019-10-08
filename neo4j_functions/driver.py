@@ -17,20 +17,19 @@ class driver(object):
         l = []
         with self.driver.session() as session:
             cols_query = 'a.' + ', a.'.join(info_cols)
-            query= ("MATCH (a:%s {%s: $idnum}) "
+            query = ("MATCH (a:%s {%s: $idnum}) "
                     "RETURN %s " % (class_type, id_field, cols_query))
             print('Query: \n', query)
-            info = session.run(query, idnum = id_val)
+            info = session.run(query, idnum=id_val)
         if info is None:
             print('No Information Found')
-            return pd.DataFrame(columns = info_cols)
+            return pd.DataFrame(columns=info_cols)
         for item in info.single():
             l.append(item)
             print(item)
-        df = pd.DataFrame([l], columns = info_cols)
+        df = pd.DataFrame([l], columns=info_cols)
         return df
 
-    
     """View -node in as pandas df"""
     def get_n_relations(
         self,
@@ -43,17 +42,35 @@ class driver(object):
         n: int,
         verbose: bool = False,
         where_clause: str = '',
-        ):
+    ) -> pd.DataFrame:
         with self.driver.session() as session:
-            cols_query = 'b.' + ', b.'.join(info_cols)
+            cols_query = ', '.join(info_cols)
+
             match_query = (
-                "MATCH (a:%s {%s: %s})-[%s]-(b:%s) " % (class_1, id_class, id_1, edge_type, class_2)
+                "MATCH p=(a:%s {%s: %s})-[%s]-(b:%s)"
+                % (class_1, id_class, id_1, edge_type, class_2)
+                )
+
+            # Add leading space to where clause
+            if where_clause != '' and where_clause[0] != ' ':
+                where_clause = ' ' + where_clause
+
+            order_section = (
+                " ORDER BY edgeLength"
                 )
             return_section = (
-                " RETURN %s"
-                " LIMIT %s"  % (cols_query, str(n))
+                " RETURN DISTINCT %s, length(p) AS edgeLength" % cols_query
                 )
-            query = match_query + where_clause + return_section
+            limit_section = (
+                " LIMIT %s" % str(n)
+            )
+            query = (
+                match_query +
+                where_clause +
+                return_section +
+                order_section +
+                limit_section
+            )
             if verbose:
                 print('Query: \n', query)
             info = session.run(query)
@@ -63,10 +80,12 @@ class driver(object):
                 return pd.DataFrame(columns=info_cols)
         df = pd.DataFrame(columns=info_cols)
         for item in info:
-            item_df = pd.DataFrame([item.values()], columns=info_cols)
+            item_df = pd.DataFrame([item.values()], columns=info_cols + ['edgeLength'])
             df = pd.concat([df, item_df])
             
         return df
+
+
     """View info about n-node in as pandas df"""
     def get_n_nodes_info(self, class_type, info_cols, n, id_field=None, id_val=None):
         l = []
