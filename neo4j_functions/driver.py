@@ -10,8 +10,12 @@ class driver(object):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
         self.parents = {}
         self.children = {}
-        
     
+    "Run an arbitrary cypher query"
+    def run_query(self, query, **kwargs):
+        with self.driver.session() as session:
+            return session.run(query, **kwargs)
+        
     """View info about single node in as pandas df"""
     def get_node_info(self, id_field, id_val, class_type, info_cols):
         l = []
