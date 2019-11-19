@@ -112,6 +112,17 @@ class driver(object):
             
         return df
 
+    def results_to_df(
+        self,
+        results,
+        columns
+    ):
+        df = pd.DataFrame(columns=columns)
+        for item in results:
+            item_df = pd.DataFrame([item.values()], columns=columns)
+            df = pd.concat([df, item_df])
+        return df
+
 
     """View info about n-node in as pandas df"""
     def get_n_nodes_info(self, class_type, info_cols, n, id_field=None, id_val=None):
