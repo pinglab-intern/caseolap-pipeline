@@ -1,0 +1,50 @@
+drug_name,action,entity_name,entity_type,bioentity_id,drugbank_id,uniprot_id
+Metoprolol,antagonist,Beta-1 adrenergic receptor,target,BE0000172,DB00264,P08588
+Metoprolol,antagonist,Beta-2 adrenergic receptor,target,BE0000694,DB00264,P07550
+Metoprolol,inhibitor,Solute carrier family 22 member 2,transporter,BE0003647,DB00264,O15244
+Metoprolol,substrate,Multidrug resistance protein 1,transporter,BE0001032,DB00264,P08183
+Metoprolol,inhibitor,Cytochrome P450 2D6,enzyme,BE0002363,DB00264,P10635
+Metoprolol,substrate,Cytochrome P450 2C19,enzyme,BE0003536,DB00264,P33261
+Propranolol,unknown,Alpha-1-acid glycoprotein 1,carrier,BE0000925,DB00571,P02763
+Propranolol,antagonist,Beta-1 adrenergic receptor,target,BE0000172,DB00571,P08588
+Propranolol,antagonist,Beta-2 adrenergic receptor,target,BE0000694,DB00571,P07550
+Propranolol,antagonist,Beta-3 adrenergic receptor,target,BE0001012,DB00571,P13945
+Propranolol,other,5-hydroxytryptamine receptor 1A,target,BE0000291,DB00571,P08908
+Propranolol,other,5-hydroxytryptamine receptor 1B,target,BE0000797,DB00571,P28222
+Propranolol,inhibitor,Solute carrier family 22 member 2,transporter,BE0003647,DB00571,O15244
+Propranolol,substrate,Multidrug resistance protein 1,transporter,BE0001032,DB00571,P08183
+Propranolol,substrate,Cytochrome P450 3A5,enzyme,BE0002362,DB00571,P20815
+Propranolol,inhibitor,Cytochrome P450 2D6,enzyme,BE0002363,DB00571,P10635
+Propranolol,substrate,Cytochrome P450 3A7,enzyme,BE0003612,DB00571,P24462
+Propranolol,substrate,Cytochrome P450 1A2,enzyme,BE0002433,DB00571,P05177
+Propranolol,substrate,Cytochrome P450 2C19,enzyme,BE0003536,DB00571,P33261
+Propranolol,substrate,Cytochrome P450 3A4,enzyme,BE0002638,DB00571,P08684
+Propranolol,inhibitor,Cytochrome P450 1A1,enzyme,BE0003543,DB00571,P04798
+Propranolol,inhibitor,Amine oxidase [flavin-containing] A,enzyme,BE0002198,DB00571,P21397
+Carvedilol,antagonist,Beta-1 adrenergic receptor,target,BE0000172,DB01136,P08588
+Carvedilol,antagonist,Alpha-1A adrenergic receptor,target,BE0000501,DB01136,P35348
+Carvedilol,inhibitor,NADH dehydrogenase [ubiquinone] 1 subunit C2,target,BE0000173,DB01136,O95298
+Carvedilol,antagonist,Beta-2 adrenergic receptor,target,BE0000694,DB01136,P07550
+Carvedilol,other,Vascular endothelial growth factor A,target,BE0000163,DB01136,P15692
+Carvedilol,other,Natriuretic peptides B,target,BE0000979,DB01136,P16860
+Carvedilol,other,Gap junction alpha-1 protein,target,BE0001095,DB01136,P17302
+Carvedilol,inhibitor,Potassium voltage-gated channel subfamily H member 2,target,BE0000090,DB01136,Q12809
+Carvedilol,inhibitor,Vascular cell adhesion protein 1,target,BE0001114,DB01136,P19320
+Carvedilol,antagonist,Alpha-1D adrenergic receptor,target,BE0000715,DB01136,P25100
+Carvedilol,antagonist,Alpha-1B adrenergic receptor,target,BE0000575,DB01136,P35368
+Carvedilol,antagonist,Alpha-2C adrenergic receptor,target,BE0000342,DB01136,P18825
+Carvedilol,antagonist,Alpha-2B adrenergic receptor,target,BE0000572,DB01136,P18089
+Carvedilol,antagonist,Alpha-2A adrenergic receptor,target,BE0000289,DB01136,P08913
+Carvedilol,inhibitor,E-selectin,target,BE0001074,DB01136,P16581
+Carvedilol,modulator,Hypoxia-inducible factor 1-alpha,target,BE0002374,DB01136,Q16665
+Carvedilol,unknown,Inward rectifier potassium channel 4,target,BE0005187,DB01136,P48050
+Carvedilol,inhibitor,Multidrug resistance protein 1,transporter,BE0001032,DB01136,P08183
+Carvedilol,inhibitor,Xanthine dehydrogenase/oxidase,enzyme,BE0002204,DB01136,P47989
+Carvedilol,substrate,Cytochrome P450 2C9,enzyme,BE0002793,DB01136,P11712
+Carvedilol,substrate,Cytochrome P450 2D6,enzyme,BE0002363,DB01136,P10635
+Carvedilol,substrate,Cytochrome P450 1A2,enzyme,BE0002433,DB01136,P05177
+Carvedilol,substrate,Cytochrome P450 3A4,enzyme,BE0002638,DB01136,P08684
+Carvedilol,substrate,Cytochrome P450 1A1,enzyme,BE0003543,DB01136,P04798
+Carvedilol,substrate,Cytochrome P450 2E1,enzyme,BE0003533,DB01136,P05181
+Carvedilol,substrate,Prostaglandin G/H synthase 1,enzyme,BE0000017,DB01136,P23219
+Carvedilol,substrate,UDP-glucuronosyltransferase 1-1,enzyme,BE0003541,DB01136,P22309
